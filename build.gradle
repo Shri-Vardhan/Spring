@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.gradle.projects'
+version = '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+dependencies {
+    implementation 'org.springframework:spring-context:6.1.3'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    // Fully qualified main class name
+    mainClass = 'com.gradle.projects.Test'
+}
+
+
+
