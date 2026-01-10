@@ -1,13 +1,23 @@
 package com.gradle.projects;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-public class Test {
-    public static void main(String[] args){
-        ApplicationContext context = new AnnotationConfigApplicationContext(Appconfig.class);
-                Student student = context.getBean("student" , Student.class);
-        student.perform();
+
+@SpringBootApplication
+public class Test implements CommandLineRunner {
+
+    @Autowired
+    Student student;
+
+    public static void main(String[] args) {
+        SpringApplication.run(Test.class, args);
     }
 
+    @Override
+    public void run(String... args) {
+        student.perform();
+    }
 }
