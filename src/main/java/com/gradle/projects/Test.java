@@ -1,22 +1,22 @@
 package com.gradle.projects;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
-public class Test {
+@SpringBootApplication
+public class
+Test {
+    @Autowired
+    private DBconnection db;
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(AppConfig.class);
-
-        DBconnection db = context.getBean(DBconnection.class);
-
-        try (Connection con = db.getConnection()) {
-            System.out.println("Connected successfully!");
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        context.close();
+        SpringApplication.run(Test.class , args);
+    }
+    public void run(String...args) throws SQLException {
+        db.getConnection();
     }
 }

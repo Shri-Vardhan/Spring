@@ -1,25 +1,22 @@
 package com.gradle.projects;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @Component
 public class DBconnection {
 
-    @Value("${db.url}")
-    private String url;
+    private final DataSource dataSource;
 
-    @Value("${db.username}")
-    private String username;
-
-    @Value("${db.password}")
-    private String password;
+    public DBconnection(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, username, password);
+        return dataSource.getConnection();
     }
 }
+
