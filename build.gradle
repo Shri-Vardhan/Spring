@@ -12,8 +12,16 @@ repositories {
 }
 
 dependencies {
+    // Spring Boot core
     implementation 'org.springframework.boot:spring-boot-starter'
+
+    // JDBC + DataSource + HikariCP
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    // Oracle JDBC driver
     implementation 'com.oracle.database.jdbc:ojdbc11:23.3.0.23.09'
+
+    // Testing (optional but recommended)
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
