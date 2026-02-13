@@ -26,18 +26,6 @@ No runnable applications
 
 No experimental changes
 
-The main branch exists only to:
-------------------------------
-Provide repository-level documentation
-
-Act as a stable entry point
-
-Maintain professional version control discipline
-
-Branch-Based Development
-
-All practical work is available in separate branches.
-
 Each branch represents:
 ----------------------
 A specific Spring or Spring Boot concept
